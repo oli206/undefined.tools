@@ -21,6 +21,9 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 - Added matching Open Graph and Twitter sharing images.
 - Constrained the desktop shell to the visible viewport and removed accidental
   horizontal and vertical page overflow while retaining normal mobile scrolling.
+- Suppressed Safari's persistent desktop scrollbar gutters so the viewport has
+  no residual strip along its right or bottom edge.
+- Tightened the header-to-content and footer spacing to keep the framing compact.
 
 ## In progress
 

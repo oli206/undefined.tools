@@ -72,7 +72,7 @@ button {
   min-height: 100svh;
   min-width: 0;
   padding: clamp(1.4rem, 3vw, 2.75rem) clamp(1.35rem, 5vw, 5rem)
-    clamp(1.25rem, 2.6vw, 2.25rem);
+    clamp(0.75rem, 1.5vh, 1.25rem);
   width: 100%;
 }
 
@@ -121,7 +121,7 @@ button {
   border-top: 1px solid var(--line);
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-  margin-top: clamp(2.25rem, 5.7vh, 4.6rem);
+  margin-top: clamp(1.5rem, 3.5vh, 2.75rem);
   min-height: 0;
   min-width: 0;
 }
@@ -303,7 +303,7 @@ button {
 
 .site-footer {
   border-top: 1px solid var(--line);
-  padding-top: 1rem;
+  padding-top: 0.65rem;
 }
 
 .site-footer nav {
@@ -338,6 +338,15 @@ button {
   #main {
     height: 100%;
     overflow: hidden;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  #main::-webkit-scrollbar {
+    display: none;
+    height: 0;
+    width: 0;
   }
 
   .page-frame {
