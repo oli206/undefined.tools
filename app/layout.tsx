@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: "https://undefined.tools",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "undefined.tools",
     description:
       "Software projects and early-stage ideas by Oliver Carabia.",
@@ -45,6 +46,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <main id="main">{children}</main>
+        <Analytics />
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ Start every task by reading `docs/ARCHITECTURE.md`, `PROJECT_STATE.md`, and `REA
 - Avoid card grids, pill-heavy interfaces, gradients, purple/dark AI aesthetics, emoji, fake terminals, and ornamental animation.
 - Preserve keyboard access and reduced-motion support for project selection.
 - Use only the project statuses `idea`, `wip`, `live`, and `archived`.
+- Use real, optimized project screenshots only when working UI exists. Do not invent placeholder interfaces for unfinished projects.
 
 ## Publication boundary
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 
 import { Status } from "@/components/status";
 import { type Project, projects } from "@/data/projects";
@@ -85,8 +86,28 @@ export function ProjectBrowser() {
         <p aria-label="Areas" className="area-line">
           {selected.areas.join("  #  ")}
         </p>
-        <p className="project-panel__summary">{selected.summary}</p>
-        <p className="project-panel__description">{selected.description}</p>
+        <div
+          className={`project-panel__body${selected.image ? " project-panel__body--with-preview" : ""}`}
+        >
+          <div className="project-panel__copy">
+            <p className="project-panel__summary">{selected.summary}</p>
+            <p className="project-panel__description">
+              {selected.description}
+            </p>
+          </div>
+          {selected.image ? (
+            <figure className="project-preview">
+              <Image
+                alt={selected.image.alt}
+                height={selected.image.height}
+                priority={selected.slug === projects[0].slug}
+                sizes="(max-width: 780px) 100vw, 34vw"
+                src={selected.image.src}
+                width={selected.image.width}
+              />
+            </figure>
+          ) : null}
+        </div>
 
         <div className="project-panel__footer">
           <dl>

@@ -16,6 +16,9 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 - Configured `undefined.tools` as the canonical production domain.
 - Configured `www.undefined.tools` as a `307` redirect to the bare domain.
 - Replaced Namecheap's parking records with Vercel's exact DNS records while preserving the unrelated email-forwarding SPF record.
+- Added a real, optimized interface preview for `mlfomo`; projects without UI remain image-free.
+- Mounted Vercel Web Analytics in the root layout.
+- Added matching Open Graph and Twitter sharing images.
 
 ## In progress
 
@@ -24,13 +27,15 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 ## Next
 
 1. Explore one subtle visual effect only after the base design feels right.
-2. Update the reviewed public metadata when project state materially changes.
+2. Add real screenshots for other projects only when their interfaces exist.
+3. Update the reviewed public metadata when project state materially changes.
 
 ## Decisions
 
 - The homepage should fit one normal desktop viewport and avoid generic AI-site visual tropes.
 - Public metadata is maintained here and never loaded from private project source.
 - The bare domain is canonical.
+- Screenshots must show real project UI; do not create placeholder product mockups.
 
 ## Blockers
 
@@ -38,4 +43,4 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 
 ## Last verified
 
-- 2026-09-11 — `npm run check` and `npm run build` passed; the local desktop layout and keyboard switching were visually verified; Vercel served the production build with HTTP 200 on both its deployment URL and the canonical domain; `www` returned a path-and-query-preserving `307` redirect to `https://undefined.tools`.
+- 2026-09-12 — `npm run check` and `npm run build` passed after adding the `mlfomo` preview and Vercel Analytics; the updated desktop and mobile layouts were visually verified locally.

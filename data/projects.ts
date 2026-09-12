@@ -12,6 +12,12 @@ export type Project = {
   current: string;
   next: string;
   areas: readonly string[];
+  image?: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+  };
   external?: {
     label: string;
     href: "https://mlfomo.dev";
@@ -38,6 +44,12 @@ export const projects = [
     current: "Live at mlfomo.dev.",
     next: "Continue improving source quality, ranking, and scanability.",
     areas: ["News aggregation", "Machine learning", "Web"],
+    image: {
+      src: "/projects/mlfomo.webp",
+      alt: "The mlfomo interface showing category trends, a news heatmap, filters, and trending stories.",
+      width: 1600,
+      height: 1461,
+    },
     external: {
       label: "Visit mlfomo",
       href: "https://mlfomo.dev",
