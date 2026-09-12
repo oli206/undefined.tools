@@ -19,11 +19,8 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 - Added a real, optimized interface preview for `mlfomo`; projects without UI remain image-free.
 - Mounted Vercel Web Analytics in the root layout.
 - Added matching Open Graph and Twitter sharing images.
-- Constrained the desktop shell to the visible viewport and removed accidental
-  horizontal and vertical page overflow while retaining normal mobile scrolling.
-- Suppressed Safari's persistent desktop scrollbar gutters so the viewport has
-  no residual strip along its right or bottom edge.
-- Tightened the header-to-content and footer spacing to keep the framing compact.
+- Fixed the desktop shell to the visual viewport, removing the underlying scroll
+  range and Safari scrollbar gutters, and tightened the header and footer framing.
 
 ## In progress
 
