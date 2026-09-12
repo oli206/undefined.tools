@@ -19,6 +19,8 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 - Added a real, optimized interface preview for `mlfomo`; projects without UI remain image-free.
 - Mounted Vercel Web Analytics in the root layout.
 - Added matching Open Graph and Twitter sharing images.
+- Constrained the desktop shell to the visible viewport and removed accidental
+  horizontal and vertical page overflow while retaining normal mobile scrolling.
 
 ## In progress
 
@@ -43,4 +45,4 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 
 ## Last verified
 
-- 2026-09-12 — `npm run check` and `npm run build` passed after adding the `mlfomo` preview and Vercel Analytics; the updated desktop and mobile layouts were visually verified locally.
+- 2026-09-12 — `npm run check` and `npm run build` passed after fixing desktop viewport overflow; representative desktop and mobile viewport sizes were checked for unintended horizontal overflow.

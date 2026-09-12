@@ -18,12 +18,20 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-synthesis: none;
+  min-height: 100%;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  min-height: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+#main {
+  min-width: 0;
 }
 
 button,
@@ -65,6 +73,7 @@ button {
   min-width: 0;
   padding: clamp(1.4rem, 3vw, 2.75rem) clamp(1.35rem, 5vw, 5rem)
     clamp(1.25rem, 2.6vw, 2.25rem);
+  width: 100%;
 }
 
 .site-header,
@@ -323,6 +332,27 @@ button {
   }
 }
 
+@media (min-width: 781px) {
+  html,
+  body,
+  #main {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .page-frame {
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .project-browser,
+  .project-list,
+  .project-panel {
+    min-height: 0;
+  }
+}
+
 @media (max-height: 760px) and (min-width: 781px) {
   .page-frame {
     padding-bottom: 1.2rem;
@@ -337,12 +367,17 @@ button {
     font-size: clamp(2.7rem, 4.7vw, 4.6rem);
   }
 
+  .project-panel {
+    padding-bottom: 1rem;
+    padding-top: 1.25rem;
+  }
+
   .project-panel__description {
     display: none;
   }
 
   .project-preview {
-    max-height: 14rem;
+    max-height: min(14rem, 32svh);
   }
 }
 
