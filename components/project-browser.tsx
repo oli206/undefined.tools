@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Status } from "@/components/status";
@@ -9,9 +9,36 @@ import { type Project, projects } from "@/data/projects";
 export function ProjectBrowser() {
   const [selectedSlug, setSelectedSlug] =
     useState<(typeof projects)[number]["slug"]>(projects[0].slug);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
   const tabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const closeButton = useRef<HTMLButtonElement | null>(null);
+  const previewButton = useRef<HTMLButtonElement | null>(null);
   const selected: Project =
     projects.find((project) => project.slug === selectedSlug) ?? projects[0];
+
+  useEffect(() => {
+    if (!isPreviewOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsPreviewOpen(false);
+      }
+    }
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleEscape);
+    closeButton.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleEscape);
+      previewButton.current?.focus();
+    };
+  }, [isPreviewOpen]);
 
   function selectAt(index: number) {
     const nextIndex = (index + projects.length) % projects.length;
@@ -81,11 +108,8 @@ export function ProjectBrowser() {
         role="tabpanel"
         tabIndex={0}
       >
-        <p className="eyebrow">{selected.category}</p>
-        <h2>{selected.name}</h2>
-        <p aria-label="Areas" className="area-line">
-          {selected.areas.join("  #  ")}
-        </p>
+        <h2 id={`project-title-${selected.slug}`}>{selected.name}</h2>
+        <p className="project-category">{selected.category}</p>
         <div
           className={`project-panel__body${selected.image ? " project-panel__body--with-preview" : ""}`}
         >
@@ -96,7 +120,13 @@ export function ProjectBrowser() {
             </p>
           </div>
           {selected.image ? (
-            <figure className="project-preview">
+            <button
+              aria-label={`Enlarge ${selected.name} screenshot`}
+              className="project-preview"
+              onClick={() => setIsPreviewOpen(true)}
+              ref={previewButton}
+              type="button"
+            >
               <Image
                 alt={selected.image.alt}
                 height={selected.image.height}
@@ -105,7 +135,7 @@ export function ProjectBrowser() {
                 src={selected.image.src}
                 width={selected.image.width}
               />
-            </figure>
+            </button>
           ) : null}
         </div>
 
@@ -131,6 +161,44 @@ export function ProjectBrowser() {
             </a>
           ) : null}
         </div>
+
+        {isPreviewOpen && selected.image ? (
+          <div
+            className="preview-lightbox"
+            onPointerDown={(event) => {
+              if (event.currentTarget === event.target) {
+                setIsPreviewOpen(false);
+              }
+            }}
+          >
+            <div
+              aria-label={`${selected.name} screenshot`}
+              aria-modal="true"
+              className="preview-lightbox__dialog"
+              role="dialog"
+            >
+              <button
+                aria-label="Close enlarged screenshot"
+                className="preview-lightbox__close"
+                onClick={() => setIsPreviewOpen(false)}
+                ref={closeButton}
+                type="button"
+              >
+                Close
+              </button>
+              <Image
+                alt={selected.image.alt}
+                className="preview-lightbox__image"
+                height={selected.image.height}
+                priority
+                quality={95}
+                sizes="(max-width: 780px) calc(100vw - 2rem), calc(100vw - 6rem)"
+                src={selected.image.src}
+                width={selected.image.width}
+              />
+            </div>
+          </div>
+        ) : null}
       </article>
     </section>
   );

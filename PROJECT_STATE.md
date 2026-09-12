@@ -21,6 +21,10 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 - Added matching Open Graph and Twitter sharing images.
 - Fixed the desktop shell to the visual viewport, removing the underlying scroll
   range and Safari scrollbar gutters, and tightened the header and footer framing.
+- Simplified project headings to name-first factual descriptors and removed the
+  redundant tag taxonomy from the public interface and metadata.
+- Made real project screenshots open in a centered, keyboard-accessible enlarged
+  view with a restrained frosted backdrop.
 
 ## In progress
 
@@ -45,4 +49,5 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 
 ## Last verified
 
-- 2026-09-12 — `npm run check` and `npm run build` passed after fixing desktop viewport overflow; representative desktop and mobile viewport sizes were checked for unintended horizontal overflow.
+- 2026-09-12 — `npm run check` and `npm run build` passed after simplifying
+  project headings and adding the enlarged screenshot view.

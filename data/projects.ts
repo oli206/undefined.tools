@@ -11,7 +11,6 @@ export type Project = {
   description: string;
   current: string;
   next: string;
-  areas: readonly string[];
   image?: {
     src: string;
     alt: string;
@@ -43,7 +42,6 @@ export const projects = [
       "mlfomo collects posts from machine-learning communities and Hacker News, enriches the articles, and presents the feed with categories and trend views.",
     current: "Live at mlfomo.dev.",
     next: "Continue improving source quality, ranking, and scanability.",
-    areas: ["News aggregation", "Machine learning", "Web"],
     image: {
       src: "/projects/mlfomo.webp",
       alt: "The mlfomo interface showing category trends, a news heatmap, filters, and trending stories.",
@@ -68,7 +66,6 @@ export const projects = [
       "Pre-implementation research and comparison with existing tools.",
     next:
       "Build a small test harness to measure capture gaps and rollback conflicts.",
-    areas: ["Developer tools", "Local history", "Safety"],
   },
   {
     slug: "memento",
@@ -83,7 +80,6 @@ export const projects = [
       "The read-only catalog and local report are implemented with generated test fixtures.",
     next:
       "Improve metadata coverage and evaluate a small, manually selected photo sample.",
-    areas: ["Spatial computing", "Local-first", "Photography"],
   },
   {
     slug: "shotgun",
@@ -98,7 +94,6 @@ export const projects = [
       "Overlay interface, global shortcut, and native window lifecycle are implemented.",
     next:
       "Test capture and overlay behavior across representative Windows games and display setups.",
-    areas: ["Desktop", "Games", "Applied AI"],
   },
 ] as const satisfies readonly Project[];
 
