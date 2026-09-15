@@ -25,6 +25,7 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
   redundant tag taxonomy from the public interface and metadata.
 - Made real project screenshots open in a centered, keyboard-accessible enlarged
   view with a restrained frosted backdrop.
+- Added Skraper Library TUI to the reviewed public project index.
 
 ## In progress
 
@@ -49,5 +50,5 @@ Public, single-page portfolio for ideas, active builds, and live tools. The inte
 
 ## Last verified
 
-- 2026-09-12 — `npm run check` and `npm run build` passed after simplifying
-  project headings and adding the enlarged screenshot view.
+- 2026-09-14 — `npm run check` and `npm run build` passed after adding Skraper
+  Library TUI to the public project index.

@@ -54,6 +54,20 @@ export const projects = [
     },
   },
   {
+    slug: "skraper-library-tui",
+    name: "Skraper Library TUI",
+    status: "wip",
+    category: "Retro-game library manager",
+    summary:
+      "A keyboard-driven tool for maintaining a scraped retro-game library and synchronizing it with ES-DE on Steam Deck.",
+    description:
+      "The PowerShell interface imports ROMs, prepares Skraper metadata, transfers games and artwork, verifies the Steam Deck library, and backs up saves and ES-DE activity.",
+    current:
+      "The end-to-end library, metadata, transfer, verification, and backup workflows are implemented and in active use.",
+    next:
+      "Continue refining emulator setup checks, progress reporting, and recovery workflows.",
+  },
+  {
     slug: "backstep",
     name: "Backstep",
     status: "idea",
